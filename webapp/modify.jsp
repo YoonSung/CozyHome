@@ -4,17 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>새글 작성하기</title>
+<title>수정</title>
 </head>
 <body>
 	<form action="/board" method="post" enctype="multipart/form-data">
-		<label for="title">
-			TITLE
-		</label>
-		<input type="text" name="title" id="title"size="30" /> <br />
-		<textarea name="contents" rows="4" cols="30"></textarea> <br />
-		<input type="file" name="file"  id="file">		<br />
-		 <input type="submit" value="보내기" />
+		<label for="title"> TITLE </label>
+		 <input type="text" name="title" id="title" size="30" value="${data.title}"/> <br />
+		<textarea name="contents" rows="4" cols="30">${data.contents}</textarea><br /> 
+		<input type="file" name="file" id="file"> <br /> <input
+			type="submit" value="수정하기" />
 	</form>
 </body>
 </html>

@@ -15,11 +15,8 @@
 		내용 : ${data.contents}<br/>
 		이미지 : ${data.fileName}<br/>
 		<img width="400px" src="/images/${data.fileName}"/>
-		<form action="/board/modify" method="post">
-		<input type="submit" value="수정"/>
-		<form action="/board/delete" method="post">
-		<input type="submit" value="삭제"/>
-		</form>
+		<button onclick="location.href='/board/modify/${data.id}'">수정</button>
+		<button onclick="location.href='/board/delete/${data.id}'">삭제</button>
 	</div>
 	<br/>
 </c:forEach>

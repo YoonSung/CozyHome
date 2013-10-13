@@ -52,9 +52,10 @@ public class BoardController {
 		return "list";
 	}
 	
-	@RequestMapping("/modify")
-	public String modify(Model model) {
-		
-		return showList(model);
+	@RequestMapping("/modify/{id}")
+	public String modify(@PathVariable Long id, Model model) {
+		BoardData getBoardData = dbRepository.findOne(id);
+		model.addAttribute("data", getBoardData);
+		return "modify";
 	}
 }
