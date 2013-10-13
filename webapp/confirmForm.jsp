@@ -1,12 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Image Upload</title>
+<link type="text/css" rel="stylesheet" href="/images/cozyhome.css"/>
 </head>
 <body>
-confirmFirm
+	<form action="/board/list" method="post">
+		<div id="upload">
+			<h2>제목 : ${board.title}</h2>
+			내용 : ${board.contents}<br/>
+			이미지 : ${board.fileName}<br/>
+			<img width="400px" src="/images/${board.fileName}"/>
+		</div>
+		<br/>
+	<input type="submit" value="확인"/>
+</form>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package org.nhnnext.web;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -13,8 +12,8 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/main", method=RequestMethod.POST)
-	public String main(String id, String pw) {
-		System.out.println("id : "+id+"  /  pw : "+pw);
+	public String main(HomeData homeData) {
+		System.out.println(homeData.toString());
 		return "main";
 	}
 }
