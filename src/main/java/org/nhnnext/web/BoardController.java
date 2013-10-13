@@ -58,4 +58,10 @@ public class BoardController {
 		model.addAttribute("data", getBoardData);
 		return "modify";
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public String delete(@PathVariable Long id, Model model) {
+		dbRepository.delete(id);
+		return "redirect:/board/list";
+	}
 }
