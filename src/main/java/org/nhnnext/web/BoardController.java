@@ -1,6 +1,7 @@
 package org.nhnnext.web;
 
-import java.util.Iterator;
+import java.util.Collections;
+import java.util.List;
 
 import org.nhnnext.repository.BoardRepository;
 import org.nhnnext.support.FileUploader;
@@ -14,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/board")
-public class BoardController {
+public class BoardController{
 	
 	@Autowired
 	BoardRepository dbRepository; 
@@ -48,6 +49,7 @@ public class BoardController {
 	@RequestMapping("/list")
 	public String showList(Model model) {
 		Iterable<BoardData> boardAllData = dbRepository.findAll();
+		Collections.reverse((List<BoardData>) boardAllData);
 		model.addAttribute("boardAllData", boardAllData);
 		return "list";
 	}
@@ -64,4 +66,5 @@ public class BoardController {
 		dbRepository.delete(id);
 		return "redirect:/board/list";
 	}
+
 }

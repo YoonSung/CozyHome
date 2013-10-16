@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Photo</title>
-<link type="text/css" rel="stylesheet" href="/images/cozyhome.css"/>
+<link type="text/css" rel="stylesheet" href="/stylesheets/cozyhome.css"/>
 </head>
 <body>
 <c:forEach var="data" items="${boardAllData}">
@@ -20,7 +20,11 @@
 		
 		<c:if test="${not empty data.comments}">
 			<c:forEach var="data2" items="${data.comments}">
-				<p>${data2.comment}</p>
+				<div id="comment">
+					<p>${data2.comment}</p>
+					<button onclick="location.href='/board/comment/modify/${data2.id}'">수정</button>
+					<button onclick="location.href='/board/comment/delete/${data2.id}'">삭제</button>
+				</div>
 			</c:forEach>	
 		</c:if>
 		

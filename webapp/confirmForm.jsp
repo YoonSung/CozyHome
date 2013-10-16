@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Image Upload</title>
-<link type="text/css" rel="stylesheet" href="/images/cozyhome.css"/>
+<link type="text/css" rel="stylesheet" href="/stylesheets/cozyhome.css"/>
 </head>
 <body>
 	<form action="/board/list" method="post">
