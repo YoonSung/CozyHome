@@ -15,16 +15,17 @@
 		내용 : ${data.contents}<br/>
 		이미지 : ${data.fileName}<br/>
 		<img width="400px" src="/images/${data.fileName}"/>
-		<button onclick="location.href='/board/modify/${data.id}'">수정</button>
-		<button onclick="location.href='/board/delete/${data.id}'">삭제</button><br/><br/>
+		<button onclick="location.href='/board/modify/${data.id}'">글수정</button>
+		<button onclick="location.href='/board/delete/${data.id}'">글삭제</button><br/><br/>
 		
 		<c:if test="${not empty data.comments}">
 			<c:forEach var="data2" items="${data.comments}">
 				<div id="comment">
-					<p>${data2.comment}</p>
+					<h6>${data2.comment}</h6>
 					<button onclick="location.href='/board/comment/modify/${data2.id}'">수정</button>
 					<button onclick="location.href='/board/comment/delete/${data2.id}'">삭제</button>
 				</div>
+				<br/>
 			</c:forEach>	
 		</c:if>
 		

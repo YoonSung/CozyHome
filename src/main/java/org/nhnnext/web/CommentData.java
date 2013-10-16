@@ -12,7 +12,7 @@ public class CommentData {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Long id;
 	
 	@Column(length=1000, nullable=false)
 	private String comment;
@@ -36,7 +36,7 @@ public class CommentData {
 		return comment;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 }
