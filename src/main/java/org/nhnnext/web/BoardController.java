@@ -2,7 +2,7 @@ package org.nhnnext.web;
 
 import java.util.Iterator;
 
-import org.nhnnext.repository.DBRepository;
+import org.nhnnext.repository.BoardRepository;
 import org.nhnnext.support.FileUploader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class BoardController {
 	
 	@Autowired
-	DBRepository dbRepository; 
+	BoardRepository dbRepository; 
 	
 	
 	@RequestMapping("/form")
