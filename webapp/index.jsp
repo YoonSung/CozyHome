@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/main" method="post">
+	<form action="/board/list" method="post">
 		<label for="id">ID</label>
 		<input type="text" name="id" id="id" size="10" /> <br />
 		<label for="pw">PW</label>

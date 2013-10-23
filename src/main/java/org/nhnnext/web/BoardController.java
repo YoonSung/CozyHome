@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.nhnnext.repository.BoardRepository;
+import org.nhnnext.repository.CommentRepository;
 import org.nhnnext.support.FileUploader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ public class BoardController{
 	@Autowired
 	BoardRepository dbRepository; 
 	
+	@Autowired
+	CommentRepository commentRepository;
 	
 	@RequestMapping("/form")
 	public String boardForm() {
@@ -43,7 +46,7 @@ public class BoardController{
 		BoardData getBoardData = dbRepository.findOne(id);
 		model.addAttribute("board", getBoardData);
 		System.out.println("confirm Point Execute End");
-		return "confirmForm";
+		return "redirect:/board/list";
 	}
 	
 	@RequestMapping("/list")
@@ -63,7 +66,15 @@ public class BoardController{
 	
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model) {
-		dbRepository.delete(id);
+		
+		for (CommentData data : commentRepository.findAll()) {
+			Long target = data.getBoardData().getId();
+			System.out.println("target : "+target);
+			if (target == id)
+				System.out.println("Match");
+				commentRepository.delete(target);
+		}
+		dbRepository.delete(id);		
 		return "redirect:/board/list";
 	}
 

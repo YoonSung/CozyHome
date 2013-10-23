@@ -29,7 +29,6 @@ public class CommentController {
 	@RequestMapping("/board/comment/delete/{id}")
 	public String commentDelete(@PathVariable Long id) {
 		commentRepository.delete(id);
-		
 		return "redirect:/board/list";
 	}
 }
