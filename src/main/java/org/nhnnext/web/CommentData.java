@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 public class CommentData {
 	
@@ -18,6 +20,7 @@ public class CommentData {
 	private String comment;
 
 	@ManyToOne
+	@JsonIgnore
 	private BoardData boardData;
 	
 	public CommentData() {

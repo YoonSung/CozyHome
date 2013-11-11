@@ -59,6 +59,8 @@ public class BoardController{
 	
 	@RequestMapping("/modify/{id}")
 	public String modify(@PathVariable Long id, Model model) {
+		
+		//악의적
 		BoardData getBoardData = dbRepository.findOne(id);
 		model.addAttribute("data", getBoardData);
 		return "modify";
@@ -66,15 +68,15 @@ public class BoardController{
 	
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model) {
+		List<CommentData> list = dbRepository.findOne(id).getComments();
 		
-		for (CommentData data : commentRepository.findAll()) {
-			Long target = data.getBoardData().getId();
-			System.out.println("target : "+target);
-			if (target == id)
-				System.out.println("Match");
-				commentRepository.delete(target);
+		//악의적으로
+		for (CommentData commentData : list) {
+			commentRepository.delete(commentData.getId());
 		}
-		dbRepository.delete(id);		
+
+		dbRepository.delete(id);
+		
 		return "redirect:/board/list";
 	}
 

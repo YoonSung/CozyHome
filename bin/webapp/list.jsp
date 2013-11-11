@@ -9,9 +9,9 @@
 <link type="text/css" rel="stylesheet" href="/stylesheets/reset.css" />
 <link type="text/css" rel="stylesheet" href="/stylesheets/cozyhome.css" />
 
-<!--
 <script src="http://www.google.com/jsapi"></script>
- <script>
+<script src="/javascripts/cozyhome.js"></script>
+<script>
 	google.load("webfont", "1");
 	google.setOnLoadCallback(function() {
 		WebFont.load({
@@ -21,7 +21,7 @@
 			}
 		});
 	});
-</script> -->
+</script>
 
 </head>
 <body>
@@ -67,21 +67,19 @@
 				<c:if test="${not empty data.comments}">
 					<div id="commentBox">
 						<div class="commentTitle">
-							<p class="commentNum">0</p>
-							<p class="commentNum">개의 댓글</p>
+							<p class="commentNum"></p>
 							<a class="commentControl" href="#">댓글 보여줘</a>
 						</div>
 						<div class="commentBody">
 							<c:forEach var="data2" items="${data.comments}">
 								<div class="showComment">
-									${data2.comment} <input type="hidden" value="${data2.id}" /> <input
-										type="button" class="commentDelBtn" value="삭제" />
-									<%-- <button class="commentModifyBtn"
-										onclick="location.href='/board/comment/modify/${data2.id}'">수정</button> --%>
-									<%-- <button class="commentDelBtn"
+									${data2.comment}
+									<button
+										onclick="location.href='/board/comment/modify/${data2.id}'">수정</button>
+									<button
 										onclick="location.href='/board/comment/delete/${data2.id}'">삭제</button>
-										onclick="location.href='/board/comment/delete/json/${data2.id}'">삭제</button> --%>
 								</div>
+								<br />
 							</c:forEach>
 						</div>
 					</div>
@@ -91,14 +89,13 @@
 					<label for="comment">의견더하기</label><br />
 					<form action="/board/comment/${data.id}" method="post">
 						<textarea name="comment" class="comment"></textarea>
-						<input type="hidden" value="${data.id}" /> <input type="submit"
-							value="댓글입력" />
+						<input type="hidden" value="${data.id}" />
+						<input type="submit" value="댓글입력" />
 					</form>
 				</div>
 			</div>
 			<br />
 		</c:forEach>
 	</div>
-	<script src="/javascripts/cozyhome.js"></script>
 </body>
 </html>

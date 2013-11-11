@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class CommentController {
@@ -30,5 +32,17 @@ public class CommentController {
 	public String commentDelete(@PathVariable Long id) {
 		commentRepository.delete(id);
 		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value="/board/comment/delete/json/{id}", method=RequestMethod.POST)
+	public @ResponseBody void commentJsonDelete(@PathVariable Long id) {
+		commentRepository.delete(id);
+	}
+	
+	@RequestMapping(value="/board/comment/json/{id}", method=RequestMethod.POST)
+	public @ResponseBody CommentData commentJsonSave(@PathVariable Long id, String comment) {
+		BoardData boardData = boardRepository.findOne(id);
+		CommentData commentData = new CommentData(boardData, comment);
+		return commentRepository.save(commentData);
 	}
 }
