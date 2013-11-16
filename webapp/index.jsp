@@ -17,13 +17,13 @@
 		</p>
 
 		<div class="choiceBlock">
-			<a href="#" class="choice_login">login</a>
-			<span>OR</span>
-			<a href="#" class="choice_join">register</a>
+			<a href="#" class="choice login">LOGIN</a>
+			<a href="#" class="choice join" width:300px>JOIN</a>
+			<span class="devider">OR</span>
 		</div>
 
-		<div class="inputArea">
-			<form action="/board/list" method="post">
+		<div class="loginArea">
+			<form action="/login" method="post">
 				<p>
 					<input type="text" name="id" id="id" size="10" placeholder="Email" />
 				</p>
@@ -32,10 +32,33 @@
 						placeholder="Password" />
 				</p>
 				<p>
-					<input type="submit" value="login" />
+					<input type="submit" value="Enter House" />
 				</p>
 			</form>
 		</div>
+		
+		<div class="joinArea">
+			<form action="/join" method="post">
+				<p>
+					<input type="text" name="rid" id="rid" size="10" placeholder="Email" />
+				</p>
+				<p>
+					<input type="text" name="nickname" size="10" placeholder="Nickname" />
+				</p>
+				<p>
+					<input type="password" name="rpw" size="10"
+						placeholder="Password" />
+				</p>
+				<p>
+					<input type="password" name="rpwRe" id="rpwRe" size="10"
+						placeholder="Password Confirm" />
+				</p>
+				<p>
+					<input type="submit" value="Create own Home" />
+				</p>
+			</form>
+		</div>
+		
 	</div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 * {
- 	font-family: 'NanumGothic';
-	position:relative;
+	font-family: 'NanumGothic';
+	position: relative;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -22,25 +22,24 @@ body {
 	background-size: cover;
 	height: 100%;
 	z-index: 1;
-	opacity:0.6;
+	opacity: 0.6;
 }
 
 .interactBox {
-	position:fixed;
-	top:20%;
-	left:7%;
-	width:100%;
+	position: absolute;
+	top: 110px;
+	left: 7%;
 }
 
-h1, p {
-	margin-bottom:10px;
+h1,p {
+	margin-bottom: 10px;
 }
 
-.inputArea {
-	margin-top:20px;
+.loginArea {
+	display:none;
 }
 
-form input[type="text"], input[type="password"] {
+form input[type="text"],input[type="password"] {
 	background: #e5e5e5;
 	border: none;
 	border-radius: 3px;
@@ -61,4 +60,68 @@ form input[type="submit"] {
 	height: 50px;
 	text-transform: uppercase;
 	width: 280px;
+}
+
+.choiceBlock {
+	font-size: 150%;
+	font-weight: 700;
+	margin-top: 60px;
+	width: 300px;
+	margin-bottom: 30px;
+}
+
+.choice {
+	display:inline-block;
+	width:130px;
+	text-align:center;
+	padding:20px;
+	border-radius: 0.3em;
+	box-shadow: 0 2px 1px rgba(black, .4);
+	letter-spacing: 0;
+}
+
+.login {
+	padding-right:30px;
+	background: #f33634;
+	color: #750807;
+	border-bottom: .2em solid #750807;
+	/* &: hover { 
+		background : #750807;
+		color: #f33634;
+		border-bottom: .2em solid #f33634;
+	} */
+}
+
+.login:hover {
+	background: #750807;
+	color: #f33634;
+	border-bottom: .2em solid #f33634;
+}
+
+.join {
+	padding-left:20px;
+	background: #38edfb;
+	color: #026f78;
+	border-bottom: .2em solid #026f78;
+	margin-left:.4em;
+	/* &:hover {
+    	background: #026f78;
+      	 color: #38edfb;
+      	 border-bottom: .2em solid #38edfb;
+    } */
+}
+
+.join:hover {
+	background: #026f78;
+	color: #38edfb;
+	border-bottom: .2em solid #38edfb;
+}
+
+.choiceBlock>.devider {
+	display: inline-block;
+	border-radius: 100%;
+	padding: .5em;
+	margin: -7.2em;
+	letter-spacing: 0;
+	background: #fff;
 }
