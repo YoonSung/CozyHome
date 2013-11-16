@@ -39,6 +39,10 @@ h1,p {
 	display:none;
 }
 
+.joinArea {
+	display:none;
+}
+
 form input[type="text"],input[type="password"] {
 	background: #e5e5e5;
 	border: none;
@@ -80,7 +84,7 @@ form input[type="submit"] {
 	letter-spacing: 0;
 }
 
-.login {
+.c_login {
 	padding-right:30px;
 	background: #f33634;
 	color: #750807;
@@ -92,13 +96,19 @@ form input[type="submit"] {
 	} */
 }
 
-.login:hover {
+.c_login:hover {
 	background: #750807;
 	color: #f33634;
 	border-bottom: .2em solid #f33634;
+	
+	/* &:active {
+	 padding:.8em 1.5em 1.2em 1.5em;
+    margin-top:.5em;
+    border-bottom:none;
+	} */
 }
 
-.join {
+.c_join {
 	padding-left:20px;
 	background: #38edfb;
 	color: #026f78;
@@ -111,7 +121,7 @@ form input[type="submit"] {
     } */
 }
 
-.join:hover {
+.c_join:hover {
 	background: #026f78;
 	color: #38edfb;
 	border-bottom: .2em solid #38edfb;

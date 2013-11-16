@@ -17,8 +17,8 @@
 		</p>
 
 		<div class="choiceBlock">
-			<a href="#" class="choice login">LOGIN</a>
-			<a href="#" class="choice join" width:300px>JOIN</a>
+			<a href="#" class="choice c_login">LOGIN</a>
+			<a href="#" class="choice c_join">JOIN</a>
 			<span class="devider">OR</span>
 		</div>
 
@@ -60,5 +60,6 @@
 		</div>
 		
 	</div>
+	<script src="/javascripts/index.js"></script>
 </body>
 </html>
