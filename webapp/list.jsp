@@ -7,11 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Photo</title>
 <link type="text/css" rel="stylesheet" href="/stylesheets/reset.css" />
-<link type="text/css" rel="stylesheet" href="/stylesheets/cozyhome.css" />
+<link type="text/css" rel="stylesheet" href="/stylesheets/list.css" />
 
-<!--
 <script src="http://www.google.com/jsapi"></script>
- <script>
+<script>
 	google.load("webfont", "1");
 	google.setOnLoadCallback(function() {
 		WebFont.load({
@@ -21,7 +20,7 @@
 			}
 		});
 	});
-</script> -->
+</script>
 
 </head>
 <body>
@@ -74,13 +73,10 @@
 						<div class="commentBody">
 							<c:forEach var="data2" items="${data.comments}">
 								<div class="showComment">
-									${data2.comment} <input type="hidden" value="${data2.id}" /> <input
-										type="button" class="commentDelBtn" value="삭제" />
-									<%-- <button class="commentModifyBtn"
-										onclick="location.href='/board/comment/modify/${data2.id}'">수정</button> --%>
-									<%-- <button class="commentDelBtn"
-										onclick="location.href='/board/comment/delete/${data2.id}'">삭제</button>
-										onclick="location.href='/board/comment/delete/json/${data2.id}'">삭제</button> --%>
+									${data2.comment} 
+									<input type="hidden" value="${data2.id}" /> 
+									<input type="button" class="commentDelBtn" value="삭제" />
+									<input type="button" class="commentModifyBtn" value="수정"/>
 								</div>
 							</c:forEach>
 						</div>
@@ -99,6 +95,6 @@
 			<br />
 		</c:forEach>
 	</div>
-	<script src="/javascripts/cozyhome.js"></script>
+	<script src="/javascripts/list.js"></script>
 </body>
 </html>

@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+
 @Controller
 @RequestMapping("/board")
 public class BoardController{
+	
+	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
 	BoardRepository dbRepository; 
@@ -30,14 +35,17 @@ public class BoardController{
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String board(BoardData boardData, MultipartFile file) {
+	public String create(BoardData boardData, MultipartFile file) {
+		log.debug("board : {}", boardData);
+		// log.debug("board : "+ boardData);
+		// 이렇게 구현될 경우 메서드 호출 전 전달인자를 먼저 처리하기 때문에 
+		// string비용발생이 생기게 된다. info 레벨이 더라도!! 그렇기 때문에 slf4j, logback에서 지원되고 있는 이 기능을 사용하면, 
+		// 메서드에 전달인자를 그냥 전달하기 때문에 성능상에 이슈가 없다.
 		
 		String uploadFileName = FileUploader.upload(file);
-//		System.out.println(uploadFileName);
 		boardData.setFileName(uploadFileName);
 		
 		BoardData savedBoardData = dbRepository.save(boardData);
-		System.out.println("Board Point Execute End");
 		return "redirect:/board/" + savedBoardData.getId();
 	}
 
@@ -45,7 +53,6 @@ public class BoardController{
 	public String confirm(@PathVariable Long id, Model model) {
 		BoardData getBoardData = dbRepository.findOne(id);
 		model.addAttribute("board", getBoardData);
-		System.out.println("confirm Point Execute End");
 		return "redirect:/board/list";
 	}
 	

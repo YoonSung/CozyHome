@@ -1,18 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="/stylesheets/reset.css" />
+<link type="text/css" rel="stylesheet" href="/stylesheets/index.css" />
+<title>CozyHome</title>
 </head>
 <body>
-	<form action="/board/list" method="post">
-		<label for="id">ID</label>
-		<input type="text" name="id" id="id" size="10" /> <br />
-		<label for="pw">PW</label>
-		<input type="password" name="pw" id="pw" size="10" /> <br />
-		<br /> <input type="submit" value="로그인" />
-	</form>
+	<div class="bgImg"></div>
+	<div class="interactBox">
+		<h1 class="title">
+			<strong>Welcome.</strong> Please login.
+		</h1>
+		<p>
+			<span>Cozy Home</span> is waiting for you.
+		</p>
+
+		<div class="choiceBlock">
+			<a href="#" class="choice_login">login</a>
+			<span>OR</span>
+			<a href="#" class="choice_join">register</a>
+		</div>
+
+		<div class="inputArea">
+			<form action="/board/list" method="post">
+				<p>
+					<input type="text" name="id" id="id" size="10" placeholder="Email" />
+				</p>
+				<p>
+					<input type="password" name="pw" id="pw" size="10"
+						placeholder="Password" />
+				</p>
+				<p>
+					<input type="submit" value="login" />
+				</p>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

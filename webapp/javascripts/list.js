@@ -7,17 +7,15 @@ function countComments() {
 		
 		currentBox.querySelector(".commentNum").innerText = currentListCount;
 	}
-	
-	var cmtDelList = document.getElementsByClassName("commentDelBtn");
-	for ( i = 0 ; i < cmtDelList.length ; i++) {
-		console.log(cmtDelList[i]);
-		cmtDelList[i].addEventListener('click', deleteComment, false);
-	}
 }
 
 function initPage() {
 	countComments();
 	registerEvents();
+}
+
+function updateEvent() {
+	
 }
 
 function registerEvents() {
@@ -31,6 +29,12 @@ function registerEvents() {
 	
 	for ( i = 0 ; i < formList.length ; i++) {
 		formList[i].addEventListener('click', writeComment, false);
+	}
+	
+	var cmtDelList = document.getElementsByClassName("commentDelBtn");
+	for ( i = 0 ; i < cmtDelList.length ; i++) {
+		console.log(cmtDelList[i]);
+		cmtDelList[i].addEventListener('click', deleteComment, false);
 	}
 }
 
