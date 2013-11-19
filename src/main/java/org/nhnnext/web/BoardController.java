@@ -67,7 +67,7 @@ public class BoardController{
 	@RequestMapping("/modify/{id}")
 	public String modify(@PathVariable Long id, Model model) {
 		
-		//악의적
+		//악의적 접근에 대한 처리가 필요
 		BoardData getBoardData = dbRepository.findOne(id);
 		model.addAttribute("data", getBoardData);
 		return "modify";
@@ -77,7 +77,7 @@ public class BoardController{
 	public String delete(@PathVariable Long id, Model model) {
 		List<CommentData> list = dbRepository.findOne(id).getComments();
 		
-		//악의적으로
+		//악의적 접근에 대한 처리가 필요
 		for (CommentData commentData : list) {
 			commentRepository.delete(commentData.getId());
 		}

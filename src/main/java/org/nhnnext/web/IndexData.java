@@ -1,23 +1,24 @@
 package org.nhnnext.web;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class HomeData {
+public class IndexData {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long rowId;
+	//@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
+	
+	@Column(length=20, nullable=false)
 	private String password;
-	public Long getRowId() {
-		return rowId;
-	}
-	public void setRowId(Long id) {
-		rowId = id;
-	}
+	
+	@Column(length=20, nullable=false)
+	private String nickname;
+	
 	public String getId() {
 		return id;
 	}
@@ -30,9 +31,17 @@ public class HomeData {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getNickname() {
+		return nickname;
+	}
+	
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	@Override
 	public String toString() {
-		return "HomeData [rowId=" + rowId + ", id=" + id + ", password="
-				+ password + "]";
+		return "IndexData [id=" + id + ", password=" + password + ", nickname="
+				+ nickname + "]";
 	}
 }

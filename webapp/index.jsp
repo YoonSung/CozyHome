@@ -25,11 +25,10 @@
 		<div class="loginArea">
 			<form action="/login" method="post">
 				<p>
-					<input type="text" name="id" id="id" size="10" placeholder="Email" />
+					<input type="text" name="id" placeholder="Email" />
 				</p>
 				<p>
-					<input type="password" name="pw" id="pw" size="10"
-						placeholder="Password" />
+					<input type="password" name="password" placeholder="Password" />
 				</p>
 				<p>
 					<input type="submit" value="Enter House" />
@@ -38,20 +37,18 @@
 		</div>
 		
 		<div class="joinArea">
-			<form action="/join" method="post">
+			<form action="#" method="post">
 				<p>
-					<input type="text" name="rid" id="rid" size="10" placeholder="Email" />
+					<input type="text" name="id" placeholder="Email" />
 				</p>
 				<p>
-					<input type="text" name="nickname" size="10" placeholder="Nickname" />
+					<input type="text" name="nickname" placeholder="Nickname" />
 				</p>
 				<p>
-					<input type="password" name="rpw" size="10"
-						placeholder="Password" />
+					<input type="password" name="password" placeholder="Password" />
 				</p>
 				<p>
-					<input type="password" name="rpwRe" id="rpwRe" size="10"
-						placeholder="Password Confirm" />
+					<input type="password" name="passwordR" placeholder="Password Confirm" />
 				</p>
 				<p>
 					<input type="submit" value="Create own Home" />

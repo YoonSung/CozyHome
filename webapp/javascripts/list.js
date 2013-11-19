@@ -33,9 +33,10 @@ function registerEvents() {
 	
 	var cmtDelList = document.getElementsByClassName("commentDelBtn");
 	for ( i = 0 ; i < cmtDelList.length ; i++) {
-		console.log(cmtDelList[i]);
 		cmtDelList[i].addEventListener('click', deleteComment, false);
 	}
+	
+	var btn_logout = document.querySelector(".btn");
 }
 
 function toggleComment(event) {
@@ -66,16 +67,12 @@ function writeComment(event) {
 	var formData = new FormData(elementForm);
 	var commentBody = event.currentTarget.parentNode.parentNode.previousElementSibling.children[1];
 	
-	console.log(commentBody);
-	console.log(event);
-	
 	var id = elementForm[1].value;
 	var url = "/board/comment/json/"+id;
 
 	var request = new XMLHttpRequest();
 	request.open("POST", url, true);
 	request.onreadystatechange = function() {
-	console.log("readyState : "+request.readyState);
 		
 		if (request.readyState == 4 && request.status == 200) {
 			var obj = JSON.parse(request.responseText);
@@ -95,30 +92,22 @@ function writeComment(event) {
 
 function deleteComment(event) {
 	event.preventDefault();
-	console.log("deleteComment");
-	console.log("event : "+event);
 	var formData = new FormData();
 	
 	
 	var currentNode = event.currentTarget;
 	var id = currentNode.parentNode.children[0].value;
-	console.log("idididi : "+id);
 	var url = "/board/comment/delete/json/"+id;
 
 	var request = new XMLHttpRequest();
 	request.open("POST", url, true);
 	request.onreadystatechange = function() {
-		console.log("readyState : "+request.readyState);
 		
 		if (request.readyState == 4 && request.status == 200) {
 			currentNode.parentNode.style.display="none";
 			
 			var commentBody = currentNode.parentNode.parentNode;
-			
-			console.log("commentBody"+commentBody);
-			
 			var cmtNum = commentBody.previousElementSibling.children[0];
-			console.log("cmtNum : "+cmtNum.innerHTML);
 		
 			if ( cmtNum.innerHTML === 1 ) {
 				commentBody.parentNode.style.display="none";

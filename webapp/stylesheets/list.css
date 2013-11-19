@@ -46,6 +46,38 @@ div.wrap {
 	z-index: 3;
 }
 
+#fixedTop > .rightMenu {
+	position:absolute;
+	top:8px;
+	right:30px;
+}
+
+.rightMenu > ul * {
+	display:inline-block;
+	background-repeat:no-repeat;
+	vertical-align: middle;
+}
+
+.rightMenu li {
+	margin-left : 10px;
+}
+
+.rightMenu a {
+	line-height:999px;
+	overflow:hidden;
+}
+
+.m_btnLogout {
+	background-image:url(https://cdn2.iconfinder.com/data/icons/flaticons-stroke/16/logout-1-32.png);
+	background-repeat:no-repeat;
+	width:32px;
+	height:32px;
+}
+
+.m_nickname {
+	
+}
+
 .formArea {
 	position:absolute;
 	margin: auto;

@@ -42,6 +42,13 @@
 			</div>
 		</div>
 
+		<div class="rightMenu">
+				<ul>
+					<li><p class="m_nickname"><%=session.getAttribute("nickname") %></p></li>
+					<li><a href="#" class="m_btnLogout">logout</a></li>
+				</ul>
+			</div>
+
 	</div>
 	<div class="wrap">
 		<div class="bgImg"></div>
@@ -73,10 +80,9 @@
 						<div class="commentBody">
 							<c:forEach var="data2" items="${data.comments}">
 								<div class="showComment">
-									${data2.comment} 
-									<input type="hidden" value="${data2.id}" /> 
-									<input type="button" class="commentDelBtn" value="삭제" />
-									<input type="button" class="commentModifyBtn" value="수정"/>
+									${data2.comment} <input type="hidden" value="${data2.id}" /> <input
+										type="button" class="commentDelBtn" value="삭제" /> <input
+										type="button" class="commentModifyBtn" value="수정" />
 								</div>
 							</c:forEach>
 						</div>
