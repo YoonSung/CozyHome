@@ -10,10 +10,10 @@
 	<div class="bgImg"></div>
 	<div class="interactBox">
 		<h1 class="title">
-			<strong>Welcome.</strong> Please login.
+			Welcome. Please login.
 		</h1>
 		<p>
-			<span>Cozy Home</span> is waiting for you.
+			<span>Cozy Home is waiting for you.</span>
 		</p>
 
 		<div class="choiceBlock">

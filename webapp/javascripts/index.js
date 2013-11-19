@@ -9,6 +9,19 @@ function login(event) {
 	event.preventDefault();
 	
 	var form = event.currentTarget.form;
+	
+//	check input value
+	var id = form[0].value;
+	var password = form[1].value;
+	
+	if ( id.length ===0 || password.length ===0 ) {
+		alert ("아이디와 패스워드를 모두 입력해 주세요");
+		return;
+	}
+	
+//	check input value END
+	
+	
 	var formData = new FormData(form);
 	var url = "/login";
 	var request = new XMLHttpRequest();
@@ -36,6 +49,30 @@ function join(event) {
 	event.preventDefault();
 
 	var form = event.currentTarget.form;
+	
+//	check input value
+	var email = form[0].value;
+	var nickname = form[1].value;
+	var password = form[2].value;
+	var passwordR = form[3].value;
+	
+	if ( email.length===0 || nickname.length===0 || password.length===0 || passwordR===0 ) {
+		alert ("공란은 허용되지 않습니다. 모두 입력해 주세요");
+		return;
+	}
+	
+	if ( email.indexOf(".") <= -1 || email.indexOf("@") <= -1 ) {
+		alert("이메일 형식에 맞춰 정확하게 입력해 주세요.")
+		return;		
+	}
+	
+	if ( password != passwordR ) {
+		alert ('입력된 비밀번호가 서로 다릅니다."');
+		return;
+	}
+//	check input value END
+	
+	
 	var formData = new FormData(form);
 	var url = "/join";
 	var request = new XMLHttpRequest();
@@ -56,6 +93,10 @@ function loginChoiceONOFF() {
 	
 	var loginNode = document.querySelector(".loginArea");
 	var loginNodeStyle = getStyleValue(loginNode, "display");
+	var titleNode = document.querySelector(".title");
+	titleNode.innerHTML = "Welcome. Please login.";
+	titleNode.nextElementSibling.innerHTML = "Cozy Home is waiting for you.";
+	
 	
 	if ( loginNodeStyle == "none" )
 		loginNode.style.display="block";
@@ -70,6 +111,10 @@ function joinChoiceONOFF() {
 	
 	var loginNode = document.querySelector(".joinArea");
 	var loginNodeStyle = getStyleValue(loginNode, "display");
+	var titleNode = document.querySelector(".title");
+	
+	titleNode.innerHTML = "Join, and Take Cozy Home.";
+	titleNode.nextElementSibling.innerHTML = "Make Your Own Beautiful House";
 	
 	if ( loginNodeStyle == "none" )
 		loginNode.style.display="block";
