@@ -3,6 +3,8 @@ package org.nhnnext.web;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.nhnnext.repository.BoardRepository;
 import org.nhnnext.repository.CommentRepository;
 import org.nhnnext.support.FileUploader;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -57,7 +58,11 @@ public class BoardController{
 	}
 	
 	@RequestMapping("/list")
-	public String showList(Model model) {
+	public String showList(Model model, HttpSession session) {
+		
+		if ( session.getAttribute("userId")  == null ) 
+			return "index";
+		
 		Iterable<BoardData> boardAllData = dbRepository.findAll();
 		Collections.reverse((List<BoardData>) boardAllData);
 		model.addAttribute("boardAllData", boardAllData);

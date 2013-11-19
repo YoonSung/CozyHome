@@ -88,4 +88,8 @@ function getStyleValue(node, style) {
 	return totalStyle.getPropertyValue(style);
 }
 
+if ( document.URL.indexOf("list") > -1 ) {
+	alert("잘못된 접근입니다. 로그인 후 이용해 주세요");
+}
+
 init();

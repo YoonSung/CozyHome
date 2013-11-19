@@ -27,7 +27,7 @@ public class IndexController {
 	
 	@RequestMapping("/main")
 	public String main() {
-		return "index";
+		return "redirect:/index";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -45,6 +45,12 @@ public class IndexController {
 			return nickname;
 		}
 		return "notExist";
+	}
+	
+	@RequestMapping("/logout")
+	public String Logout(HttpSession session) {
+		session.invalidate();
+		return "index";
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)

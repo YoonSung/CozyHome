@@ -35,8 +35,6 @@ function registerEvents() {
 	for ( i = 0 ; i < cmtDelList.length ; i++) {
 		cmtDelList[i].addEventListener('click', deleteComment, false);
 	}
-	
-	var btn_logout = document.querySelector(".btn");
 }
 
 function toggleComment(event) {
