@@ -43,11 +43,11 @@
 		</div>
 
 		<div class="rightMenu">
-				<ul>
-					<li><p class="m_nickname"><%=session.getAttribute("nickname") %></p></li>
-					<li><a href="#" class="m_btnLogout">logout</a></li>
-				</ul>
-			</div>
+			<ul>
+				<li><p class="m_nickname"><%=session.getAttribute("nickname")%></p></li>
+				<li><a href="#" class="m_btnLogout">logout</a></li>
+			</ul>
+		</div>
 
 	</div>
 	<div class="wrap">

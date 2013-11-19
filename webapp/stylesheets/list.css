@@ -74,38 +74,32 @@ div.wrap {
 	height:32px;
 }
 
-.m_nickname {
-	
-}
-
 .formArea {
 	position:absolute;
 	margin: auto;
-	margin-top:100%;
+	top:-420px;
 	width:100%;
 	margin-bottom:25px;
 	border-radius: 15px;
 	padding: 50px 10px;
 	background-color: rgba(72, 72, 72, 0.6);
+	transition:margin 2s, background 2s;
+	-webkit-transition:margin 2s, background 2s, -webkit-transform 2s; /* Safari */
+	transition-duration: 1s;
+	-webkit-transition-duration: 1s; /* Safari */
+}
+
+.formArea:hover {
+	background-color:rgba(72, 72, 72, 1);
+	margin-top:500px;
 }
 
 .formWrapper
 {
 	width:400px;
 	height:100px;
-	top:-510px;
 	margin:auto;
-	transition:height 2s, background 2s;
-	-webkit-transition:height 2s, background 2s, -webkit-transform 2s; /* Safari */
-	transition-duration: 1s;
-	-webkit-transition-duration: 1s; /* Safari */
 }
-
-.formWrapper:hover
-{
-	height:600px;
-}
-
 
 
 .inputArea #title {
