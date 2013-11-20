@@ -82,9 +82,9 @@ function join(event) {
 			var result = request.responseText;
 			
 			console.log("request.responseText : "+result);
+			window.location = "/";
 		}
 	}
-	
 	request.send(formData);
 }
 

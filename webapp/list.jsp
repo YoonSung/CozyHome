@@ -31,6 +31,7 @@
 					<div class="inputArea">
 						<input type="text" name="title" id="title" placeholder="제목" /> <br />
 						<textarea name="contents" rows="4" cols="30" placeholder="내용"></textarea>
+						<input type="hidden" name="writer" value="${sessionScope.userId}"/>
 					</div>
 					<br /> <input type="file" name="file" id="file"> <br /> <input
 						type="reset" value="초기화"> <br />
@@ -94,8 +95,9 @@
 					<label for="comment">의견더하기</label><br />
 					<form action="/board/comment/${data.id}" method="post">
 						<textarea name="comment" class="comment"></textarea>
-						<input type="hidden" value="${data.id}" /> <input type="submit"
-							value="댓글입력" />
+						<input type="hidden" value="${data.id}" /> 
+						<input type="submit" value="댓글입력" />
+						<input type="hidden" name ="writer" value="${sessionScope.userId}" />
 					</form>
 				</div>
 			</div>

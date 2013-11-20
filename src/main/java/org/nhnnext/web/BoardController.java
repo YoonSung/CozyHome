@@ -37,7 +37,8 @@ public class BoardController{
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public String create(BoardData boardData, MultipartFile file) {
-		log.debug("board : {}", boardData);
+		log.debug("Param boardData : {}", boardData);
+		
 		// log.debug("board : "+ boardData);
 		// 이렇게 구현될 경우 메서드 호출 전 전달인자를 먼저 처리하기 때문에 
 		// string비용발생이 생기게 된다. info 레벨이 더라도!! 그렇기 때문에 slf4j, logback에서 지원되고 있는 이 기능을 사용하면, 
@@ -47,6 +48,9 @@ public class BoardController{
 		boardData.setFileName(uploadFileName);
 		
 		BoardData savedBoardData = dbRepository.save(boardData);
+		
+		log.debug("savedBoardData : {}", savedBoardData.toString());
+		
 		return "redirect:/board/" + savedBoardData.getId();
 	}
 
@@ -61,7 +65,7 @@ public class BoardController{
 	public String showList(Model model, HttpSession session) {
 		
 		if ( session.getAttribute("userId")  == null ) 
-			return "index";
+			return "redirect:/";
 		
 		Iterable<BoardData> boardAllData = dbRepository.findAll();
 		Collections.reverse((List<BoardData>) boardAllData);

@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class BoardData {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -24,6 +25,9 @@ public class BoardData {
 	
 	@Column(length=30, nullable=true)
 	private String fileName;
+
+	@Column(length=30, nullable=true)
+	private String writer;
 	
 	@OneToMany(mappedBy = "boardData", fetch = FetchType.EAGER)
 	private List<CommentData> comments;
@@ -56,9 +60,18 @@ public class BoardData {
 	public List<CommentData> getComments() {
 		return comments;
 	}
+	
+	public String getWriter() {
+		return writer;
+	}
+	
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	@Override
 	public String toString() {
-		return "BoardData [id=" + id + ", title=" + title + ", contents="
-				+ contents + ", fileName=" + fileName + "]";
-	}
+		return "BoardData [id=" + id + ", title=" + title + ", writer="
+				+ writer + ", contents=" + contents + ", fileName=" + fileName
+				+ ", comments=" + comments + "]";
+	} 
 }

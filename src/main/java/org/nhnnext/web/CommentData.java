@@ -12,9 +12,15 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @Entity
 public class CommentData {
 	
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+
+//	@Column(length=20) because 꼬임....
+	private String writer;
+
 	
 	@Column(length=1000, nullable=false)
 	private String comment;
@@ -41,5 +47,13 @@ public class CommentData {
 	
 	public Long getId() {
 		return id;
+	}
+	
+	public String getWriter() {
+		return writer;
+	}
+	
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 }

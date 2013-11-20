@@ -31,7 +31,7 @@ public class IndexController {
 	
 	@RequestMapping("/main")
 	public String main() {
-		return "redirect:/index";
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
@@ -54,7 +54,7 @@ public class IndexController {
 	@RequestMapping("/logout")
 	public String Logout(HttpSession session) {
 		session.invalidate();
-		return "index";
+		return "home";
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)

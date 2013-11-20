@@ -66,8 +66,13 @@ function writeComment(event) {
 	var commentBody = event.currentTarget.parentNode.parentNode.previousElementSibling.children[1];
 	
 	var id = elementForm[1].value;
+	console.log(elementForm[2].value);
+	console.log(elementForm[3].value);
+	console.log(commentBody);
+	
+	
 	var url = "/board/comment/json/"+id;
-
+	
 	var request = new XMLHttpRequest();
 	request.open("POST", url, true);
 	request.onreadystatechange = function() {

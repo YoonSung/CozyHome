@@ -20,10 +20,12 @@ public class CommentController {
 	CommentRepository commentRepository;
 	
 	@RequestMapping(value="/board/comment/{id}", method=RequestMethod.POST)
-	public String commentSave(@PathVariable Long id, String comment) {
+	public String commentSave(@PathVariable Long id, String comment, String writer) {
 		
 		BoardData getBoardData = boardRepository.findOne(id);
 		CommentData commentData = new CommentData(getBoardData, comment);
+		commentData.setWriter(writer);
+		
 		commentRepository.save(commentData);
 		return "redirect:/board/list";
 	}
