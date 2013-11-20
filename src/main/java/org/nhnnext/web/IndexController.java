@@ -21,8 +21,12 @@ public class IndexController {
 	IndexRepository indexRepository;
 	
 	@RequestMapping("/")
-	public String index() {
-		return "index";
+	public String index(HttpSession session) {
+		
+		if ( session.getAttribute("userId") != null && session.getAttribute("nickname") !=null ) {
+			return "redirect:/board/list";
+		}
+		return "home";
 	}
 	
 	@RequestMapping("/main")

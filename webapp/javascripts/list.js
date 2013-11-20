@@ -31,7 +31,7 @@ function registerEvents() {
 		formList[i].addEventListener('click', writeComment, false);
 	}
 	
-	var cmtDelList = document.getElementsByClassName("commentDelBtn");
+	var cmtDelList = document.getElementsByClassName("cmtDel");
 	for ( i = 0 ; i < cmtDelList.length ; i++) {
 		cmtDelList[i].addEventListener('click', deleteComment, false);
 	}

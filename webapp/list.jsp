@@ -33,7 +33,7 @@
 						<textarea name="contents" rows="4" cols="30" placeholder="내용"></textarea>
 					</div>
 					<br /> <input type="file" name="file" id="file"> <br /> <input
-						type="reset" value="지웁니다"> <br />
+						type="reset" value="초기화"> <br />
 					<div id="submitArea">
 						<input type="submit" value="SUBMIT" />
 						<div id="divTransition2"></div>
@@ -54,13 +54,14 @@
 		<div class="bgImg"></div>
 		<c:forEach var="data" items="${boardAllData}">
 			<div class="upload">
-				<div class="showSetting">
-					<button onclick="location.href='/board/modify/${data.id}'">글수정</button>
-					<button onclick="location.href='/board/delete/${data.id}'">글삭제</button>
-				</div>
 
 				<div id="showTitle">
 					<h2>${data.title}</h2>
+				</div>
+
+				<div>
+					<button onclick="location.href='/board/modify/${data.id}'" class="postModify">글수정</button>
+					<button onclick="location.href='/board/delete/${data.id}'" class="postDel">글삭제</button>
 				</div>
 
 				<c:if test="${not empty data.fileName }">
@@ -73,16 +74,16 @@
 				<c:if test="${not empty data.comments}">
 					<div id="commentBox">
 						<div class="commentTitle">
+							<p>댓글</p>
 							<p class="commentNum">0</p>
-							<p class="commentNum">개의 댓글</p>
 							<a class="commentControl" href="#">댓글 보여줘</a>
 						</div>
 						<div class="commentBody">
 							<c:forEach var="data2" items="${data.comments}">
 								<div class="showComment">
 									${data2.comment} <input type="hidden" value="${data2.id}" /> <input
-										type="button" class="commentDelBtn" value="삭제" /> <input
-										type="button" class="commentModifyBtn" value="수정" />
+										type="button" class="cmtDel" value="삭제" /> <input
+										type="button" class="cmtModify" value="수정" />
 								</div>
 							</c:forEach>
 						</div>
