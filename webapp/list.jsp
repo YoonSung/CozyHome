@@ -97,7 +97,7 @@
 						<textarea name="comment" class="comment"></textarea>
 						<input type="hidden" value="${data.id}" /> 
 						<input type="submit" value="댓글입력" />
-						<input type="hidden" name ="writer" value="${sessionScope.userId}" />
+						<input type="hidden" name ="writter" value="${sessionScope.userId}" />
 					</form>
 				</div>
 			</div>

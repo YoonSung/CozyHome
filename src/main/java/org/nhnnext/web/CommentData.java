@@ -19,7 +19,7 @@ public class CommentData {
 	private Long id;
 
 //	@Column(length=20) because 꼬임....
-	private String writer;
+	private String writter;
 
 	
 	@Column(length=1000, nullable=false)
@@ -49,11 +49,11 @@ public class CommentData {
 		return id;
 	}
 	
-	public String getWriter() {
-		return writer;
+	public String getWritter() {
+		return writter;
 	}
 	
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setWritter(String writer) {
+		this.writter = writer;
 	}
 }

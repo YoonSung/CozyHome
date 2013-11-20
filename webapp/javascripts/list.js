@@ -65,6 +65,8 @@ function writeComment(event) {
 	var formData = new FormData(elementForm);
 	var commentBody = event.currentTarget.parentNode.parentNode.previousElementSibling.children[1];
 	
+	console.log(commentBody);
+	
 	var id = elementForm[1].value;
 	console.log(elementForm[2].value);
 	console.log(elementForm[3].value);
@@ -84,9 +86,11 @@ function writeComment(event) {
 				"<div class=\"showComment\">"+obj.comment
 					+ " 	<button onclick=\"location.href=\'/board/comment/modify/"+obj.id+"\'\">수정</button>"
 					+ " 	<button onclick=\"location.href='/board/comment/delete/"+obj.id+"\'\">삭제</button></div>";
-			
 			commentBody.insertAdjacentHTML('beforeend', htmlSource);
-			var cmtNum = commentBody.previousElementSibling.children[0];
+			var cmtNum = commentBody.previousElementSibling.children[1];
+			
+			console.log(cmtNum);
+			
 			cmtNum.innerHTML = parseInt(cmtNum.innerHTML)+1;
 		}
 	}

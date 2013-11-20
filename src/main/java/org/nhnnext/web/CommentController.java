@@ -24,7 +24,7 @@ public class CommentController {
 		
 		BoardData getBoardData = boardRepository.findOne(id);
 		CommentData commentData = new CommentData(getBoardData, comment);
-		commentData.setWriter(writer);
+		//commentData.setWritter(writer);
 		
 		commentRepository.save(commentData);
 		return "redirect:/board/list";
