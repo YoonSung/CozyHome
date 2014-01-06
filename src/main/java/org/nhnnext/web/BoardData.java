@@ -23,7 +23,7 @@ public class BoardData {
 	@Column(length=150, nullable=false)
 	private String contents;
 	
-	@Column(length=30, nullable=true)
+	@Column(length=100, nullable=true)
 	private String fileName;
 
 	@Column(length=30, nullable=true)

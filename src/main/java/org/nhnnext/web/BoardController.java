@@ -1,5 +1,6 @@
 package org.nhnnext.web;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -8,15 +9,16 @@ import javax.servlet.http.HttpSession;
 import org.nhnnext.repository.BoardRepository;
 import org.nhnnext.repository.CommentRepository;
 import org.nhnnext.support.FileUploader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
 
 @Controller
 @RequestMapping("/board")
@@ -64,8 +66,8 @@ public class BoardController{
 	@RequestMapping("/list")
 	public String showList(Model model, HttpSession session) {
 		
-		if ( session.getAttribute("userId")  == null ) 
-			return "redirect:/";
+		//if ( session.getAttribute("userId")  == null ) 
+		//	return "redirect:/";
 		
 		Iterable<BoardData> boardAllData = dbRepository.findAll();
 		Collections.reverse((List<BoardData>) boardAllData);
@@ -96,4 +98,25 @@ public class BoardController{
 		return "redirect:/board/list";
 	}
 
+	@RequestMapping("/xhr/{callback}/{frameNumber}")
+	public @ResponseBody String htmlXHRFuction(@PathVariable String callback, @PathVariable int frameNumber)  {
+		System.out.println("in htmlXHRFunction");
+		
+		
+		ArrayList<String> urls = new ArrayList<String>();
+		urls.add("http://adcreative.naver.com/ad3/1004/1004874/420_90_61381195734140.jpg");
+		urls.add("http://adcreative.naver.com/ad3/1004/1004874/420_90_11382339269735.jpg");
+		urls.add("http://adcreative.naver.com/ad3/1004/1004874/420_90_01381801624212.jpg");
+		
+		int randomIndex = (int) (Math.random() * urls.size());
+		log.info("randomIndex : {}\n", randomIndex);
+		
+		String param = urls.get(randomIndex);
+		log.info("param : {}\n", param);
+		
+		String result = callback+"(\'"+param+"\',"+frameNumber+");";
+		log.info("result : {}\n", result);
+		
+		return result;
+	}
 }
