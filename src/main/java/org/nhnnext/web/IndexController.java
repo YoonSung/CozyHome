@@ -82,6 +82,7 @@ public class IndexController {
 			if ( indexData.getPassword().equals(password) ) {
 				result.put("result", "OK");
 				result.put("code", "200");
+				result.put("nickname", indexData.getNickname());
 			}
 		}
 		
