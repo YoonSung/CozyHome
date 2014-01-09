@@ -81,7 +81,8 @@ function join(event) {
 		if (request.readyState == 4 && request.status == 200) {
 			var result = request.responseText;
 			
-			console.log("request.responseText : "+result);
+			//console.log("request.responseText : "+result);
+			 alert("Cozy Home 가입을 축하합니다.")
 			window.location = "/";
 		}
 	}

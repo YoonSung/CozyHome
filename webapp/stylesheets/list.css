@@ -251,9 +251,10 @@ div.wrap {
 	background:url("	https://cdn2.iconfinder.com/data/icons/toolbar-icons/512/Pencil-20.png") no-repeat;	
 }
 
-
-.showComment cmdModify {
-	
+.showNickname {
+	font-style: oblique;
+	font-size:15px;
+	margin-top:10px;
 }
 
 

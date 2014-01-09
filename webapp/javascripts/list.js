@@ -84,8 +84,11 @@ function writeComment(event) {
 			
 			var htmlSource = 
 				"<div class=\"showComment\">"+obj.comment
-					+ " 	<button onclick=\"location.href=\'/board/comment/modify/"+obj.id+"\'\">수정</button>"
-					+ " 	<button onclick=\"location.href='/board/comment/delete/"+obj.id+"\'\">삭제</button></div>";
+					+ "	<input type='hidden' value='"+obj.id+"'/> "
+					+ " 	<input type='button' class='cmtDel' value='삭제' />"
+					+ " 	<input type='button' class='cmtModify' value='수정' />";
+			
+			console.log(commentBody);
 			commentBody.insertAdjacentHTML('beforeend', htmlSource);
 			var cmtNum = commentBody.previousElementSibling.children[1];
 			

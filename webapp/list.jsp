@@ -31,7 +31,7 @@
 					<div class="inputArea">
 						<input type="text" name="title" id="title" placeholder="제목" /> <br />
 						<textarea name="contents" rows="4" cols="30" placeholder="내용"></textarea>
-						<input type="hidden" name="writer" value="${sessionScope.userId}"/>
+						<input type="hidden" name="writer" value="${sessionScope.nickname}"/>
 					</div>
 					<br /> <input type="file" name="file" id="file"> <br /> <input
 						type="reset" value="초기화"> <br />
@@ -45,7 +45,7 @@
 
 		<div class="rightMenu">
 			<ul>
-				<li><p class="m_nickname"><%=session.getAttribute("nickname")%></p></li>
+				<li><p class="m_nickname"><%=session.getAttribute("nickname")%></p></li> <%-- ${sessionScope.nickname} --%>
 				<li><a href="/logout" class="m_btnLogout">logout</a></li>
 			</ul>
 		</div>
@@ -68,11 +68,11 @@
 				<c:if test="${not empty data.fileName }">
 					<img src="/images/${data.fileName}" />
 				</c:if>
-
-				<div class="showContents">${data.contents}</div>
+				<div class="showNickname">${data.writer}</div>
+				<div class="showContents">작성자 : ${data.contents}</div>
 				<br /> <br />
 
-				<c:if test="${not empty data.comments}">
+				<%-- <c:if test="${not empty data.comments}"> --%>
 					<div id="commentBox">
 						<div class="commentTitle">
 							<p>댓글</p>
@@ -89,7 +89,7 @@
 							</c:forEach>
 						</div>
 					</div>
-				</c:if>
+				<%-- </c:if> --%>
 
 				<div class="commentWrite">
 					<label for="comment">의견더하기</label><br />
