@@ -1,5 +1,6 @@
 package org.nhnnext.web;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -129,8 +130,7 @@ public class BoardController {
 	}
 
 	@RequestMapping("/xhr/{callback}/{frameNumber}")
-	public @ResponseBody
-	String htmlXHRFuction(@PathVariable String callback,
+	public @ResponseBody String htmlXHRFuction(@PathVariable String callback,
 			@PathVariable int frameNumber) {
 		System.out.println("in htmlXHRFunction");
 
@@ -149,5 +149,32 @@ public class BoardController {
 		log.info("result : {}\n", result);
 
 		return result;
+	}
+	
+	@RequestMapping("/test/koreanFile")
+	public void koreanTest() {
+		
+		File file1 = null;
+		File file2 = new File("/Users/YOON-SUNG/Desktop/test/javajigi.png");
+		
+		try {
+			
+			file1 = new File( new String("/Users/YOON-SUNG/Desktop/test/자바지기.png".getBytes(), "UTF-8") );;
+
+
+			System.out.println("file1 exists? : "+file1.exists());
+			System.out.println("file2 exists? : "+file2.exists());			
+			System.out.println("file1 create sucess? : "+file1.createNewFile());
+			System.out.println("file2 create sucess? : "+file2.createNewFile());
+			
+			
+			
+			//file1.renameTo(new File( new String("/Users/YOON-SUNG/Desktop/test/정윤성.png".getBytes(), "UTF-8")));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("System File Encoding : "+System.getProperty("file.encoding")); //UTF8로 잘 표기됩니다.
 	}
 }
