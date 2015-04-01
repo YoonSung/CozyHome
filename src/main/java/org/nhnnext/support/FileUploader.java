@@ -5,7 +5,7 @@ import java.io.File;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploader {
-	private static final String ATTACHMENT_ROOT_DIR = "/Users/YOON-SUNG/Desktop/course/term3/hdp/HdpWorkSpace/CozyHome/webapp/images";
+	private static final String ATTACHMENT_ROOT_DIR = "/Volumes/storage/course/2013/term3/hdp/HdpWorkSpace/CozyHome/webapp/images";
 
 	public static String upload(MultipartFile multipartFile) {
 		if (multipartFile.isEmpty()) {
